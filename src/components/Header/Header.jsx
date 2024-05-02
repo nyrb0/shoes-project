@@ -17,8 +17,8 @@ const Header = ()=>{
             </div>
             <div className={styles.info}>
                 <div className={styles.user}>
-                    <div className={styles.user} style={{backgroundImage:`url(${AVATAR})`}}/>
-                    <div className={styles.username}>jfnsj</div>
+                    <div className={styles.avatar} style={{backgroundImage:`url(${AVATAR})`}}/>
+                    <div className={styles.username}>Stuff Nu1bo</div>
                 </div>
                 <form className={styles.form}>
                     <div className={styles.input}>
@@ -28,10 +28,11 @@ const Header = ()=>{
                         placeholder={'Search for anything'}
                         autoComplete='off'
                         onChange={()=>{}}
-                        value={null}
+                        value={''}
                         />
                     </div>
-                    {false &&  <div className={styles.box}>
+                    {false &&  
+                    <div className={styles.box}>
                     </div>}
                 </form>
                 <div className={styles.account}>
@@ -48,7 +49,6 @@ const Header = ()=>{
                             </span>
                         </div>
                     </Link>
-
                 </div>  
             </div>
         </div>
