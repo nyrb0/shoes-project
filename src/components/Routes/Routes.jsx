@@ -1,11 +1,15 @@
-import {Routes,Route} from 'react-router-dom'
-import Home from '../home/Home';
+    import {Routes,Route} from 'react-router-dom'
+    import Home from '../home/Home';
+    import { ROUTES } from '../../utils/routes';
+    import SingleProduct from '../Products/SingleProduct';
 
-const AppRoutes = ()=>{
-        <Routes>
-            <Route index element={<Home/>}/>
-        </Routes>
-    
-}
+    const AppRoutes = ()=>{
+        return(
+            <Routes>
+                <Route index element={<Home/>}/>
+                <Route path={ROUTES.PRODUCT} element={<SingleProduct/>}/>
+            </Routes>
+            )
+    }
 
-export default AppRoutes;
+    export default AppRoutes;

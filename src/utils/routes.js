@@ -1,5 +1,7 @@
-export const ROUTES = {
-    HOME:'/',
-    CART:'/cart',
-    CATEGORY:'categories/:id'
-}
+
+    export const ROUTES = {
+        HOME:'/',
+        CART:'cart',
+        PRODUCT:'/products/:id',
+        CATEGORY:'/category/:id',
+    }

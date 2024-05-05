@@ -4,6 +4,32 @@
   height: 423px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  /* для Firefox */
+scrollbar-color: black;
+
+/* для IE и Edge */
+-ms-overflow-style: none;
+
+}
+.sidebar {
+  -ms-overflow-style: none;
+}
+
+/* Стилизация полосы прокрутки */
+.sidebar::-webkit-scrollbar {
+  width: 4px; /* Ширина полосы прокрутки */
+}
+
+/* Цвет фона трека */
+.sidebar::-webkit-scrollbar-track {
+  background: gray; /* Серый цвет */
+}
+
+/* Цвет полосы прокрутки */
+.sidebar::-webkit-scrollbar-thumb {
+  background: #212123; /* Темно-серый цвет */
+  border-radius: 6px; /* Скругление углов полосы прокрутки */
 }
 
 .title {

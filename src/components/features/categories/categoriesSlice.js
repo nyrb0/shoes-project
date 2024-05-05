@@ -18,7 +18,7 @@ const initialState = {
     isLoading:false
 }
 
-const categoriesSlice =createSlice({
+const categoriesSlice =createSlice({    
     name:'categories',
     initialState,
     extraReducers:(builder)=>{

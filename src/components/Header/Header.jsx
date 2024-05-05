@@ -37,12 +37,12 @@ const Header = ()=>{
                 </form>
                 <div className={styles.account}>
                     <Link to={ROUTES.HOME} className={styles.favourites}>
-                        <div className={styles["icon-fav"]}>
+                        <div className={styles.iconFav}>
                                 <CiHeart />
                         </div>
                     </Link>
                     <Link to={ROUTES.HOME} className={styles.cart}>
-                        <div className={styles["icon-cart"]}>
+                        <div className={styles.iconCart}>
                             <CiShoppingCart />
                             <span className={styles.count}>
                                 3
