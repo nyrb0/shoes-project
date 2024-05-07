@@ -20,7 +20,7 @@ const SingleProduct = () => {
     },[isFetching,isLoading,isSuccess])
 
     useEffect(()=>{
-        if(!data || !list.length) return;
+        if(!data ) return;
         dis(getRelatedProducts(data.category.id))
     },[data,dis])
     return (

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { addItemToCart } from '../features/user/userSlice'
 
 
-const SIZES = [4,4.5,5];
+const SIZES = [4,4.5,5]; 
 const Product = (item) => {
     const {title,price,images,description} = item
     const [currentImage,setCurrentImage] = useState();
@@ -18,7 +18,7 @@ const Product = (item) => {
     },[images])
 
     const addToCart = ()=>{
-        dis(addItemToCart(item))
+        dis(addItemToCart(item));
         currentSize()
     }
     return (

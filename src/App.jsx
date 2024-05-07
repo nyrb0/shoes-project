@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { getCategories } from './components/features/categories/categoriesSlice'
 import Home from './components/home/Home'
 import { getProducts } from './components/features/ptoducts/productSlice'
+import UserForm from './components/user/UserForm'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className='app'>
       <Header/>
+      <UserForm/>
       <div className='container'>  
           <Sidebar/>
           <AppRoutes/>

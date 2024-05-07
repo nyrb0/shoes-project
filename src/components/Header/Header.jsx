@@ -6,8 +6,24 @@ import LOGO from '../../images/logo.svg';
 import AVATAR from '../../images/avatar.jpg';
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleForm } from '../features/user/userSlice';
+import { useEffect, useState } from 'react';
 const Header = ()=>{
+    const {currentUser} = useSelector(({user})=>user)
+    const dis = useDispatch();
+    const [values,setValues]=useState({
+        name:'Guest',
+        avatar:AVATAR
+    })
+    const handleClick = ()=>{
+        if(!currentUser)dis(toggleForm(true));
 
+    }
+    useEffect(()=>{
+        if(!currentUser)return;
+        setValues(currentUser)
+    },[currentUser])
     return(
         <div className={styles.header}>
             <div className={styles.logo}>
@@ -16,9 +32,9 @@ const Header = ()=>{
                 </Link>
             </div>
             <div className={styles.info}>
-                <div className={styles.user}>
-                    <div className={styles.avatar} style={{backgroundImage:`url(${AVATAR})`}}/>
-                    <div className={styles.username}>Stuff Nu1bo</div>
+                <div className={styles.user} onClick={handleClick}>
+                    <div className={styles.avatar} style={{backgroundImage:`url(${values.avatar})`}}/>
+                    <div className={styles.username}>{values.name}</div>
                 </div>
                 <form className={styles.form}>
                     <div className={styles.input}>
