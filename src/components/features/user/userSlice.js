@@ -29,10 +29,19 @@ export const createUser = createAsyncThunk(
                 return thunkAPI.rejectWithValue(e)
             }
         })
+export const upDateUser = createAsyncThunk(
+    'user/upDateUser',async(payload,thunkAPI)=>{
+        try{
+            const res = await axios.put(`${BASE_URL}/users/${payload.id}`,payload)
+            return res.data
+            }catch(e){
+                console.log(e)
+                return thunkAPI.rejectWithValue(e)
+            }
+        })
 
 const addCurrentUser = (state,{payload})=>{
     state.currentUser = payload;
-    
 }
 const initialState = {
     currentUser:null,
@@ -73,6 +82,7 @@ const userSlice =createSlice({
         // });
         builder.addCase(createUser.fulfilled,addCurrentUser);
         builder.addCase(loginUser.fulfilled,addCurrentUser);
+        builder.addCase(upDateUser.fulfilled,addCurrentUser);
         // builder.addCase(getCategories.rejected,(state,{payload})=>{
         //     state.list = payload;
         //     state.isLoading = false;

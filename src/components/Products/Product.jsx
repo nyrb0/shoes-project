@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../styles/Product.module.css'
+    import styles from '../../styles/Product.module.css'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import { useDispatch } from 'react-redux'
@@ -15,7 +15,7 @@ const Product = (item) => {
     useEffect(()=>{
         if(!images.length) return;
         setCurrentImage(images[0])
-    },[images])
+    },[images]) 
 
     const addToCart = ()=>{
         dis(addItemToCart(item));

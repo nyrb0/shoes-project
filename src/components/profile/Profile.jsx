@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Profile.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { upDateUser } from '../features/user/userSlice';
 const Profile = () => {
     const dis = useDispatch();
+    const{currentUser} = useSelector(({user})=>user)
     const [dataLogin,setDataLogin] = useState({
         name:'',
         email:'',
         password:'',
         avatar:''
     })  
+   
+    useEffect(()=>{
+        if(!currentUser) return;
+        setDataLogin(currentUser)
+    },[currentUser])
     console.log(dataLogin)
     const handleChange = ({target:{value,name}})=>{
         setDataLogin({...dataLogin,[name]:value})
@@ -17,11 +24,10 @@ const Profile = () => {
         e.preventDefault();
         const isEmpty = Object.values(dataLogin).some(val => val)
         if(!isEmpty)return;
-        dis(createUser(dataLogin))
-        closeForm();
+        dis(upDateUser(dataLogin))
     }
     return (
-        <div className={styles.profile}>
+        <section className={styles.profile}>
             {!currentUser ? <span>You need log in</span>:(
                 <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.group}>
@@ -72,16 +78,12 @@ const Profile = () => {
                     required
                     />
                 </div>
-
-                <div className={styles.link} onClick={()=>toggleCurrrentFormType('login')}>
-                    I already have an account
-                </div>
                 <button type='submit' className={styles.submit}>
-                    Create an account
+                    Up date
                 </button>
             </form>
             )}
-        </div>
+        </section>
     )
 }
 
