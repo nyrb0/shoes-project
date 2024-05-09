@@ -19,7 +19,6 @@ const Product = (item) => {
 
     const addToCart = ()=>{
         dis(addItemToCart(item));
-        currentSize()
     }
     return (
         <section className={styles.product}>

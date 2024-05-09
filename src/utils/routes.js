@@ -4,5 +4,5 @@
         CART:'cart',
         PROFILE:"/profile",
         PRODUCT:'/products/:id',
-        CATEGORY:'/category/:id',
+        CATEGORY:'/categories/:id',
     }

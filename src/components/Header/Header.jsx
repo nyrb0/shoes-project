@@ -11,7 +11,7 @@ import { toggleForm } from '../features/user/userSlice';
 import { useEffect, useState } from 'react';
 import { useGetProductsQuery } from '../features/api/apiSlice';
 const Header = ()=>{
-    const {currentUser} = useSelector(({user})=>user)
+    const {currentUser,cart} = useSelector(({user})=>user)
     const dis = useDispatch();
     const navigate = useNavigate();
 
@@ -26,7 +26,6 @@ const Header = ()=>{
         if(!currentUser)dis(toggleForm(true));
         else navigate(ROUTES.PROFILE)
     }
-    console.log(data)
     useEffect(()=>{
         if(!currentUser)return;
         setValues(currentUser)
@@ -79,12 +78,14 @@ const Header = ()=>{
                                 <CiHeart />
                         </div>
                     </Link>
-                    <Link to={ROUTES.HOME} className={styles.cart}>
+                    <Link to={ROUTES.CART} className={styles.cart}>
                         <div className={styles.iconCart}>
                             <CiShoppingCart />
-                            <span className={styles.count}>
-                                3
-                            </span>
+                            {!!cart.length && (
+                                <span className={styles.count}>
+                                    {cart.length}
+                                </span>
+                            )}
                         </div>
                     </Link>
                 </div>  
